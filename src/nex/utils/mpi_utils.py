@@ -312,22 +312,6 @@ def render_video(model, dataset, ray, video_path = 'runs/video/', render_type='d
     with open('data/pose/final_cam_pose.json') as f:
 	    data = json.load(f)
     poses = data['poses']
-  else:
-    # render_poses = webGLspiralPath(
-    #   dataset.sfm.ref_img['r'],
-    #   dataset.sfm.ref_img['t'],
-    #   dataset.sfm.dmin,
-    #   dataset.sfm.dmax
-    # )
-    render_poses = []
-    with open('data/pose/cam_pose2.json') as f:
-	    data = json.load(f)
-    poses = data['poses']
-    for pose in poses:
-      render_poses.append({
-        'r': np.array(pose['R']),
-        't': np.array(pose['T']).reshape((3, 1))
-      })
   # total_frame = len(render_poses)
   total_frame = len(poses)
   print('Rendering video frame...')
@@ -355,12 +339,12 @@ def render_video(model, dataset, ray, video_path = 'runs/video/', render_type='d
           feature['r'][0, i, j] = poses[pose_id]['R'][i][j]
       for i in range(3):
         feature['t'][0, i] = poses[pose_id]['T'][0][i] * -1
-        if i == 0:
-          feature['t'][0, i] -= 0.5
-        """if i == 1:
-          feature['t'][0, i] -= 0.1
-        if i == 2:
-          feature['t'][0, i] += 0.8"""
+        # if i == 0:
+        #   feature['t'][0, i] -= 0.5
+        # if i == 1:
+        #   feature['t'][0, i] -= 0.1
+        # if i == 2:
+        #   feature['t'][0, i] += 0.8
       feature['R'] = feature['r'][0].t()[None]
       feature['center'] = (-feature['R'][0] @ feature['t'][0])[None]
     if not render_type == 'nearest':
