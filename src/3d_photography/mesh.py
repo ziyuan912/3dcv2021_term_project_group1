@@ -2300,6 +2300,8 @@ def output_3d_photo(verts, colors, faces, Height, Width, hFov, vFov, tgt_poses, 
                     print(idx, img.shape)
                 return
             '''
+            if not os.path.exists('demo/'):
+                os.makedirs('demo/')
             myimg = cv2.cvtColor(img[..., :3],cv2.COLOR_BGR2RGB)
             cv2.imwrite('demo/img{}.jpg'.format(count), myimg)
             
