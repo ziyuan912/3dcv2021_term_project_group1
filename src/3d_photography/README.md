@@ -8,7 +8,7 @@
     - E.g., `image/computer.jpg`
 3. Run the following command
     ```bash
-    python main.py --config argument.yml --pose 
+    python main.py --config argument.yml
     ```
     - use --pose to specify the path of camera pose file(default ```./cam_pose.json```)
 4. The rendered videos are stored in ```video/```:
