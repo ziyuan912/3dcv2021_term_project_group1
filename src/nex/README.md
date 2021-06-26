@@ -35,41 +35,8 @@ conda env create -f environment.yml
 ```
 
 ## Dataset
-### Shiny dataset
 
-**Download:**  [Shiny dataset](https://vistec-my.sharepoint.com/:f:/g/personal/pakkapon_p_s19_vistec_ac_th/EnIUhsRVJOdNsZ_4smdhye0B8z0VlxqOR35IR3bp0uGupQ?e=TsaQgM). 
-
-We provide 2 directories named `shiny` and `shiny_extended`. 
-- `shiny` contains benchmark scenes used to report the scores in our paper.
-- `shiny_extended` contains additional challenging scenes used on our website [project page](https://nex-mpi.github.io/) and [video](https://www.youtube.com/watch?v=HyfkF7Z-ddA)
-
-
-### NeRF's  real forward-facing dataset
-**Download:** [Undistorted front facing dataset](https://vistec-my.sharepoint.com/:f:/g/personal/pakkapon_p_s19_vistec_ac_th/ErjPRRL9JnFIp8MN6d1jEuoB3XVoxJkffPjfoPyhHkj0dg?e=qIunN0)
-
-For real forward-facing dataset, NeRF is trained with the raw images, which may contain lens distortion. But we use the undistorted images provided by COLMAP.
-
-However, you can try running other scenes from [Local lightfield fusion](https://github.com/Fyusion/LLFF) (Eg. [airplant](https://github.com/Fyusion/LLFF/blob/master/imgs/viewer.gif)) without any changes in the dataset files. In this case, the images are not automatically undistorted.
-
-### Deepview's spaces dataset
-**Download:** [Modified spaces dataset](https://vistec-my.sharepoint.com/:f:/g/personal/pakkapon_p_s19_vistec_ac_th/Euiqlm45zFlItB7eJToHFUUBrIpWH3ehbyUUvpLAL5ulgg?e=Oh0JYN)
-
-We slightly modified the file structure of Spaces dataset in order to determine the plane placement and split train/test sets. 
-
-### Using your own images.
-
-Running NeX on your own images. You need to install [COLMAP](https://colmap.github.io/) on your machine.
-
-Then, put your images into a directory following this structure
-```
-<scene_name>
-|-- images
-     | -- image_name1.jpg
-     | -- image_name2.jpg
-     ...
-```
-
-The training code will automatically prepare a scene for you. You may have to tune `planes.txt` to get better reconstruction (see [dataset explaination](https://vistec-my.sharepoint.com/:t:/g/personal/pakkapon_p_s19_vistec_ac_th/EYBtE-X95pFLscoLFehUMtQBjrrYKQ9mxVEzKzNlDuoZLw?e=bODHZ4))
+We produce 3 dataset for training and demo. they are in `data/[red/gray/black]` you can use them to render a novel view scenes of different cars.
 
 
 ## Training
@@ -83,18 +50,15 @@ This implementation uses [scikit-image](https://scikit-image.org/) to resize ima
 
 Note that this code is tested on an Nvidia V100 32GB and 4x RTX 2080Ti GPU.
 
-For a GPU/GPUs with less memory (e.g., a single RTX 2080Ti), you can run using the following command:
+For reproducing our final result, you can run using the following command:
 ```shell
-python train.py -scene ${PATH_TO_SCENE} -model_dir ${MODEL_TO_SAVE_CHECKPOINT} -http -layers 12 -sublayers 6 -hidden 256
+python train.py -scene data/[red/gray/black] -model_dir [red/gray/black] -layers 24 -sublayers 6 -epochs 1 -offset 80 -tb_toc 1 -hidden 128 -pos_level 7 -depth_level 7 -tb_saveimage 2 -num_workers 2 -llff_width 250 -web_width=4096
 ```
 Note that when your GPU runs ouut of memeory, you can try reducing the number of layers, sublayers, and sampled rays.
 
 ## Rendering
 
-To generate a WebGL viewer and a video result.
-```shell
-python train.py -scene ${scene} -model_dir ${MODEL_TO_SAVE_CHECKPOINT} -predict -http
-```
+The generated video result will be at `runs/video_output/[model_dir]/video.mp4`
 
 ### Video rendering
 
