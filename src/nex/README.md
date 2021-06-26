@@ -36,18 +36,7 @@ conda env create -f environment.yml
 
 ## Dataset
 
-Running NeX on your own images. You need to install [COLMAP](https://colmap.github.io/) on your machine.
-
-Then, put your images into a directory following this structure
-```
-<scene_name>
-|-- images
-     | -- image_name1.jpg
-     | -- image_name2.jpg
-     ...
-```
-
-The training code will automatically prepare a scene for you. You may have to tune `planes.txt` to get better reconstruction (see [dataset explaination](https://vistec-my.sharepoint.com/:t:/g/personal/pakkapon_p_s19_vistec_ac_th/EYBtE-X95pFLscoLFehUMtQBjrrYKQ9mxVEzKzNlDuoZLw?e=bODHZ4))
+We produce 3 dataset for training and demo. they are in `data/[red/gray/black]` you can use them to render a novel view scenes of different cars.
 
 
 ## Training
