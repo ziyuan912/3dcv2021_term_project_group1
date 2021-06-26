@@ -2299,8 +2299,11 @@ def output_3d_photo(verts, colors, faces, Height, Width, hFov, vFov, tgt_poses, 
                     cv2.imwrite('demo/img0{}.jpg'.format(idx), img[..., :3])
                     print(idx, img.shape)
                 return
-            count += 1
             '''
+            myimg = cv2.cvtColor(img[..., :3],cv2.COLOR_BGR2RGB)
+            cv2.imwrite('demo/img{}.jpg'.format(count), myimg)
+            
+            count += 1
             stereos.append(img[..., :3])
             normal_canvas.translate(-rel_pose[:3,3])
             normal_canvas.rotate(axis=axis, angle=-(angle*180)/np.pi)

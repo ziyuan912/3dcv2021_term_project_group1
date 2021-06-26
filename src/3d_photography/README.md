@@ -13,3 +13,4 @@
     - use --pose to specify the path of camera pose file(default ```./cam_pose.json```)
 4. The rendered videos are stored in ```video/```:
     - E.g., `video/computer_novel.mp4`
+5. The rendered image sequence are stored in ```demo/```.
