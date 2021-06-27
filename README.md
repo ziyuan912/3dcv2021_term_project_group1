@@ -3,7 +3,7 @@
 R09922074 潘奕廷 R09922031 黃子源 R09944030 高晟瑋
 
 ## Introduction
-This project applies view synthesis methods to an image or motion video to get 3D views and place the result in the ideal region through augmented reality, which makes a cool result like the magic effect in Harry Potter films. 
+This project applies view synthesis methods to an image or an motion video to get 3D views and place the result in the ideal region through augmented reality, which makes a cool result like the magic effect in Harry Potter films. 
 
 
 
