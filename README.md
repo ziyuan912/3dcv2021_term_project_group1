@@ -44,7 +44,7 @@ The result will save under the **src/testcases/2/final_result** folder.
 We take **Nex[1]** and **3D photography[2]** as our view synthesis models. For retraining our final results, please see the README files under the both **src/nex** folder and **src/3d_photography** folder.
 
 ## Implementation
-For detail about our implementation, please check out the [report]() file.
+For detail about our implementation, please check out the [report](https://github.com/ziyuan912/3dcv2021_term_project_group1/blob/main/Report.pdf) file.
 
 ## Reference
 [[1] Suttisak Wizadwongsa, et al. NeX: Real-time View Synthesis with Neural Basis Expansion. CVPR 2021](https://nex-mpi.github.io/)
