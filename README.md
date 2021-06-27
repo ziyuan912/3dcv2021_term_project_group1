@@ -47,5 +47,5 @@ We take **Nex[1]** and **3D photography[2]** as our view synthesis models. For r
 For detail about our implementation, please check out the [report](https://github.com/ziyuan912/3dcv2021_term_project_group1/blob/main/Report.pdf) file.
 
 ## Reference
-[[1] Suttisak Wizadwongsa, et al. NeX: Real-time View Synthesis with Neural Basis Expansion. CVPR 2021](https://nex-mpi.github.io/)
+[[1] Suttisak Wizadwongsa, et al. NeX: Real-time View Synthesis with Neural Basis Expansion. CVPR 2021](https://nex-mpi.github.io/)  
 [[2] Shih, et al. 3d photography using context-aware layered depth inpainting. CVPR, 2020](https://shihmengli.github.io/3D-Photo-Inpainting/)
