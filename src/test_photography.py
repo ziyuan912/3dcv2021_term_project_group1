@@ -221,7 +221,7 @@ def main():
     imgs = []
     for v in json_data['views']:
         img_path = v["value"]["ptr_wrapper"]["data"]['filename']
-        img = cv2.imread(os.path.join('./test2/frame3', img_path))
+        img = cv2.imread(os.path.join(img_folder, img_path))
         imgs.append(img)
 
     print('read image finish.')
