@@ -7,7 +7,7 @@ This project applies view synthesis methods to an image or motion video to get 3
 
 https://user-images.githubusercontent.com/30254494/123547254-a21def80-d792-11eb-9745-9ff451286a01.mp4  
 
-https://user-images.githubusercontent.com/ziyuan912/3dcv2021_term_project_group1/blob/main/.github/videos/demo0.mp4 
+https://user-images.githubusercontent.com/ziyuan912/3dcv2021_term_project_group1/main/.github/videos/demo0.mp4 
 
 ## Prerequisites
 * Python 3.8
